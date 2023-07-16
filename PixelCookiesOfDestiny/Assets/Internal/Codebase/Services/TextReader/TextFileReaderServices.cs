@@ -7,31 +7,21 @@
 
 using System;
 using System.IO;
-using UnityEngine;
-using Random = UnityEngine.Random;
+using AbyssMoth.Internal.Codebase.Constants;
+using AbyssMoth.Internal.Codebase.Services.Localization;
 
-namespace AbyssMoth.Internal.Codebase
+namespace AbyssMoth.Internal.Codebase.Services.TextReader
 {
-    [Serializable]
-    public enum LanguageTypeID
-    {
-        Ru = 0,
-        En = 1,
-        Tr = 2,
-    }
-
     public sealed class TextFileReaderServicesServices : ITextFileReaderServices
     {
         private readonly ILocalizationServices localizationServices;
 
-        public TextFileReaderServicesServices(ILocalizationServices localizationServices)
-        {
-            this.localizationServices = localizationServices;
-        }
+        public TextFileReaderServicesServices(ILocalizationServices localizationServices) =>
+            this.localizationServices = localizationServices ?? throw new ArgumentNullException(nameof(localizationServices));
 
         public string[] GetTextDataset()
         {
-            var filePath = "Assets/Internal/Resources/Datasets/" + localizationServices.GetCurrentLanguage() + ".txt";
+            var filePath = AssetPath.TextDatasets + localizationServices.GetCurrentLanguage() + ".txt";
 
             if (!File.Exists(filePath))
                 throw new NullReferenceException("Datasets not found.");
@@ -40,10 +30,5 @@ namespace AbyssMoth.Internal.Codebase
 
             return fileText.Split('\n');
         }
-    }
-
-    public interface ITextFileReaderServices
-    {
-        public string[] GetTextDataset();
     }
 }

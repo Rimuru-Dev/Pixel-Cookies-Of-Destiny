@@ -5,13 +5,17 @@
 //
 // **************************************************************** //
 
-using System;
+using AbyssMoth.Internal.Codebase.Services.Fate;
+using AbyssMoth.Internal.Codebase.Services.Localization;
+using AbyssMoth.Internal.Codebase.Services.TextReader;
+using AbyssMoth.Internal.Codebase.View;
 using UnityEngine;
 
-namespace AbyssMoth.Internal.Codebase
+namespace AbyssMoth.Internal.Codebase.Boot
 {
     public sealed class Bootstrupper : MonoBehaviour
     {
+        [SerializeField] private LanguageTypeID defaultLanguage;
         [SerializeField] private CookiesView cookiesView;
         
         private IFateServices fateServices;
@@ -20,7 +24,7 @@ namespace AbyssMoth.Internal.Codebase
         
         private void Awake()
         {
-            localizationServices = new LocalizationServices(LanguageTypeID.Ru);
+            localizationServices = new LocalizationServices(LanguageTypeID.Tr);
             textFileReaderServices = new TextFileReaderServicesServices(localizationServices);
             fateServices = new FateServices(textFileReaderServices,localizationServices);
         }

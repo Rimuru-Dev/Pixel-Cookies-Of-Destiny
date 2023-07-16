@@ -10,7 +10,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AbyssMoth.Internal.Codebase
+namespace AbyssMoth.Internal.Codebase.Animation
 {
     public sealed class WindowAnimation : MonoBehaviour
     {

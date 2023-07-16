@@ -7,8 +7,10 @@
 
 namespace AbyssMoth.Internal.Codebase.Constants
 {
-    public readonly struct AssetPath
+    public readonly struct Languages
     {
-        public const string TextDatasets = "Assets/Internal/Resources/Datasets/";
+        public const string Ru = "ru";
+        public const string En = "en";
+        public const string Tr = "tr";
     }
 }

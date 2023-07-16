@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using AbyssMoth.Internal.Codebase;
+using AbyssMoth.Internal.Codebase.Animation;
+using AbyssMoth.Internal.Codebase.Services.Fate;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace AbyssMoth
+namespace AbyssMoth.Internal.Codebase.View
 {
     public class CookiesView : MonoBehaviour
     {
@@ -17,9 +16,23 @@ namespace AbyssMoth
         public Action OnClick;
         public int remainingCookies;
 
+        public GameObject getMoreCookiespanel;
+        public Button getMoreCookiesButton;
+
         public WindowAnimation windowAnimation;
         public IFateServices fateServices;
         public Text text;
+
+        private void OnDestroy()
+        {
+            foreach (var image in images)
+            {
+                if (image.TryGetComponent(out Button button))
+                    button.onClick.RemoveAllListeners();
+            }
+
+            getMoreCookiesButton.onClick.RemoveListener(GetMoreCookies);
+        }
 
         public void Initialization(IFateServices fateServices)
         {
@@ -38,21 +51,24 @@ namespace AbyssMoth
                 RandomScale(image);
                 SubscribeOnImage(image);
             }
+
+            getMoreCookiespanel.SetActive(false);
+            getMoreCookiesButton.onClick.AddListener(GetMoreCookies);
         }
 
-        private void RandomRotation(Image image)
+        private void RandomRotation(Graphic image)
         {
             var randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
             image.rectTransform.rotation = randomRotation;
         }
 
-        private void RandomScale(Image image)
+        private void RandomScale(Graphic image)
         {
             var randomScale = Random.Range(minScale, maxScale);
             image.rectTransform.localScale = new Vector3(randomScale, randomScale, 1f);
         }
 
-        private void SubscribeOnImage(Image image)
+        private void SubscribeOnImage(Component image)
         {
             if (image.TryGetComponent(out Button button))
             {
@@ -67,9 +83,25 @@ namespace AbyssMoth
                     if (remainingCookies <= 0)
                     {
                         Debug.Log("WIN");
+                        getMoreCookiespanel.SetActive(true);
                     }
                 });
             }
+        }
+
+        private void GetMoreCookies()
+        {
+            foreach (var image in images.Where(image => image != null))
+            {
+                image.gameObject.SetActive(true);
+
+                remainingCookies++;
+
+                RandomRotation(image);
+                RandomScale(image);
+            }
+
+            getMoreCookiespanel.SetActive(false);
         }
     }
 }

@@ -6,14 +6,11 @@
 // **************************************************************** //
 
 using System;
+using AbyssMoth.Internal.Codebase.Services.Localization;
+using AbyssMoth.Internal.Codebase.Services.TextReader;
 
-namespace AbyssMoth.Internal.Codebase
+namespace AbyssMoth.Internal.Codebase.Services.Fate
 {
-    public interface IInitialialize
-    {
-        public void Initialize();
-    }
-
     public sealed class FateServices : IFateServices
     {
         private readonly ITextFileReaderServices fileReaderServices;
@@ -55,44 +52,5 @@ namespace AbyssMoth.Internal.Codebase
             index = 0;
             textLines = fileReaderServices.GetTextDataset();
         }
-    }
-
-    public sealed class LocalizationServices : ILocalizationServices
-    {
-        private LanguageTypeID languageTypeID;
-        public Action<LanguageTypeID> OnLanguageChanged { get; set; }
-
-        public LocalizationServices(LanguageTypeID languageTypeID)
-        {
-            this.languageTypeID = languageTypeID;
-        }
-
-        public string GetCurrentLanguage()
-        {
-            return languageTypeID switch
-            {
-                LanguageTypeID.Ru => "ru",
-                LanguageTypeID.En => "en",
-                LanguageTypeID.Tr => "tr",
-                _ => throw new ArgumentOutOfRangeException()
-            };
-        }
-
-        public void SwitchLandiage(LanguageTypeID languageTypeID)
-        {
-            this.languageTypeID = languageTypeID;
-        }
-    }
-
-    public interface IFateServices : IInitialialize
-    {
-        public string GetFate();
-    }
-
-    public interface ILocalizationServices
-    {
-        public Action<LanguageTypeID> OnLanguageChanged { get; set; }
-        public string GetCurrentLanguage();
-        public void SwitchLandiage(LanguageTypeID languageTypeID);
     }
 }
