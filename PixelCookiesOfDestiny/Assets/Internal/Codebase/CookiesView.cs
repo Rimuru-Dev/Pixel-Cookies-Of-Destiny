@@ -16,18 +16,17 @@ namespace AbyssMoth
         public float maxScale = 1.2f;
         public Action OnClick;
         public int remainingCookies;
-        
-        public WindowAnimation windowAnimation;
-        public TextFileReader textFileReader;
-        public Text text;
-        
-        private void Start()
-        {
-            PrepareImages();
-            
-            windowAnimation.OnShowWindow += delegate { text.text = textFileReader.GetFate(); };
-        }
 
+        public WindowAnimation windowAnimation;
+        public IFateServices fateServices;
+        public Text text;
+
+        public void Initialization(IFateServices fateServices)
+        {
+            this.fateServices = fateServices;
+            PrepareImages();
+            windowAnimation.OnShowWindow += delegate { text.text = fateServices.GetFate(); };
+        }
 
         private void PrepareImages()
         {
