@@ -23,7 +23,7 @@ namespace AbyssMoth
         {
             mainCamera = Camera.main;
             minDistanceSquared = minDistance * minDistance;
-            CalculateScreenBounds();
+            CalculateScreenBounds(); // Расчет границ экрана для учета как горизонтального, так и портретного режимов
             SpawnCookies();
         }
 
@@ -31,12 +31,12 @@ namespace AbyssMoth
         {
             float screenAspect = (float)Screen.width / Screen.height;
 
-            if (screenAspect >= 16 / 9f) // широкий экран
+            if (screenAspect >= 1f) // Если широкий экран или квадратный экран (горизонтальный режим)
             {
                 screenHalfWidth = mainCamera.orthographicSize * screenAspect;
                 screenHalfHeight = mainCamera.orthographicSize;
             }
-            else // узкий экран
+            else // Если узкий экран (портретный режим)
             {
                 screenHalfWidth = mainCamera.orthographicSize;
                 screenHalfHeight = mainCamera.orthographicSize / screenAspect;
@@ -45,12 +45,18 @@ namespace AbyssMoth
 
         private void SpawnCookies()
         {
+            float cookieSize = cookiePrefab.GetComponent<Renderer>().bounds.size.magnitude;
+            float maxCookiesPerScreen =
+                Mathf.Floor(Mathf.Min(screenHalfWidth, screenHalfHeight) * 2f / (cookieSize + minDistance));
+
+            numCookies = Mathf.RoundToInt(Mathf.Min(numCookies, maxCookiesPerScreen));
+
             for (int i = 0; i < numCookies; i++)
             {
                 Vector2 spawnPosition = GetRandomSpawnPosition();
 
                 GameObject cookie = Instantiate(cookiePrefab, spawnPosition, Quaternion.identity);
-                cookie.transform.localScale = GetRandomScale(cookie.GetComponent<Renderer>().bounds.size);
+                cookie.transform.localScale = GetRandomScale(cookieSize);
                 cookie.transform.rotation = GetRandomRotation();
             }
         }
@@ -85,6 +91,11 @@ namespace AbyssMoth
 
         private bool IsValidPosition(Vector2 position)
         {
+            Vector3 screenPoint = mainCamera.WorldToScreenPoint(position);
+
+            if (screenPoint.x < 0 || screenPoint.x > Screen.width || screenPoint.y < 0 || screenPoint.y > Screen.height)
+                return false;
+
             Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(position, minDistance);
 
             foreach (Collider2D collider in nearbyColliders)
@@ -96,17 +107,17 @@ namespace AbyssMoth
             return true;
         }
 
-        private Vector3 GetRandomScale(Vector3 cookieSize)
+        private Vector3 GetRandomScale(float cookieSize)
         {
             float randomScale = Random.Range(minScale, maxScale);
 
-            float maxScreenWidth = screenHalfWidth * 2 - cookieSize.x;
-            float maxScreenHeight = screenHalfHeight * 2 - cookieSize.y;
+            float maxScreenWidth = screenHalfWidth * 2f - minDistance;
+            float maxScreenHeight = screenHalfHeight * 2f - minDistance;
 
             float maxCookieSize = Mathf.Min(maxScreenWidth, maxScreenHeight) / numCookies;
 
-            if (randomScale * maxCookieSize < minScale)
-                randomScale = minScale / maxCookieSize;
+            if (randomScale * cookieSize > maxCookieSize)
+                randomScale = maxCookieSize / cookieSize;
 
             return new Vector3(randomScale, randomScale, 1f);
         }
