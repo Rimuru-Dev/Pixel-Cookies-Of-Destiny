@@ -2127,7 +2127,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -2734,6 +2734,8 @@ MonoBehaviour:
   minScale: 0.8
   maxScale: 1.2
   remainingCookies: 0
+  getMoreCookiespanel: {fileID: 2146311931}
+  getMoreCookiesButton: {fileID: 73723687}
   windowAnimation: {fileID: 15212197}
   text: {fileID: 587486740}
 --- !u!1 &1401459469
@@ -3243,7 +3245,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -3252,7 +3254,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ru
+  m_Text: En
 --- !u!222 &1525742226
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3630,7 +3632,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -3639,7 +3641,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ru
+  m_Text: Tr
 --- !u!222 &1728140917
 CanvasRenderer:
   m_ObjectHideFlags: 0
