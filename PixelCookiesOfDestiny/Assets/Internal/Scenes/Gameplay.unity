@@ -279,6 +279,7 @@ Transform:
   - {fileID: 1819841850}
   - {fileID: 15212196}
   - {fileID: 1212115218}
+  - {fileID: 1491063841}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2734,10 +2735,8 @@ MonoBehaviour:
   minScale: 0.8
   maxScale: 1.2
   remainingCookies: 0
-  getMoreCookiespanel: {fileID: 2146311931}
-  getMoreCookiesButton: {fileID: 73723687}
-  windowAnimation: {fileID: 15212197}
   text: {fileID: 587486740}
+  windowAnimation: {fileID: 15212197}
 --- !u!1 &1401459469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3062,6 +3061,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489164557}
   m_CullTransparentMesh: 1
+--- !u!1 &1491063840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491063841}
+  - component: {fileID: 1491063842}
+  m_Layer: 0
+  m_Name: MoreCookiesPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1491063841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491063840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 40555956}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1491063842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491063840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7163560b9c164892821a6e72d2e55166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 2146311931}
+  button: {fileID: 73723687}
+  cookiesController: {fileID: 1338815277}
 --- !u!1 &1502134786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3851,8 +3897,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dea8babb1cc4389aac4731c83e382ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLanguage: 2
-  cookiesView: {fileID: 1338815277}
+  cookiesController: {fileID: 1338815277}
+  moreCookiesPanel: {fileID: 1491063842}
 --- !u!1 &1881216787
 GameObject:
   m_ObjectHideFlags: 0

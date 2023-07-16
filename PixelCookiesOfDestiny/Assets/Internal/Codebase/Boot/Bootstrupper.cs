@@ -5,34 +5,35 @@
 //
 // **************************************************************** //
 
+using AbyssMoth.Internal.Codebase.Cookies;
 using AbyssMoth.Internal.Codebase.Services.Fate;
 using AbyssMoth.Internal.Codebase.Services.Localization;
 using AbyssMoth.Internal.Codebase.Services.TextReader;
-using AbyssMoth.Internal.Codebase.View;
 using UnityEngine;
 
 namespace AbyssMoth.Internal.Codebase.Boot
 {
     public sealed class Bootstrupper : MonoBehaviour
     {
-        [SerializeField] private LanguageTypeID defaultLanguage;
-        [SerializeField] private CookiesView cookiesView;
-        
+        [SerializeField] private CookiesController cookiesController;
+        [SerializeField] private MoreCookiesPanel moreCookiesPanel;
+
         private IFateServices fateServices;
         private ITextFileReaderServices textFileReaderServices;
         private ILocalizationServices localizationServices;
-        
+
         private void Awake()
         {
-            localizationServices = new LocalizationServices(LanguageTypeID.Tr);
+            localizationServices = new LocalizationServices(LanguageTypeID.Ru);
             textFileReaderServices = new TextFileReaderServicesServices(localizationServices);
-            fateServices = new FateServices(textFileReaderServices,localizationServices);
+            fateServices = new FateServices(textFileReaderServices, localizationServices);
         }
 
         private void Start()
         {
             fateServices.Initialize();
-            cookiesView.Initialization(fateServices);
+            cookiesController.Initialization(fateServices);
+            moreCookiesPanel.Initialize();
         }
     }
 }

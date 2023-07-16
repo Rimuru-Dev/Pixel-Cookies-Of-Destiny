@@ -1,4 +1,11 @@
-﻿using System;
+﻿// **************************************************************** //
+//
+//   Copyright (c) RimuruDev. All rights reserved.
+//   Contact me: rimuru.dev@gmail.com
+//
+// **************************************************************** //
+
+using System;
 using AbyssMoth.Internal.Codebase.Constants;
 
 namespace AbyssMoth.Internal.Codebase.Services.Localization

@@ -14,34 +14,28 @@ namespace AbyssMoth.Internal.Codebase.Animation
 {
     public sealed class WindowAnimation : MonoBehaviour
     {
+        public Action OnShowWindow;
         public RectTransform windowRectTransform;
         public Button closeButton;
-        public RectTransform startPosition; // Позиция начала анимации
-        public RectTransform endPosition; // Позиция конца анимации
+        public RectTransform startPosition;
+        public RectTransform endPosition;
         public CanvasGroup canvasGroup;
-
         private Tween currentAnimation;
-
-        public Action OnShowWindow, OnHideWindow;
 
         private void Start()
         {
             closeButton.onClick.AddListener(HideWindow);
 
-            // Переместить окно в начальную позицию
             windowRectTransform.SetParent(startPosition, false);
             windowRectTransform.localPosition = Vector3.zero;
             windowRectTransform.localScale = Vector3.zero;
             canvasGroup.alpha = 0f;
         }
 
-        [ContextMenu("ShowWindow")]
         public void ShowWindow()
         {
             if (currentAnimation != null && currentAnimation.IsActive())
-            {
                 currentAnimation.Kill();
-            }
 
             OnShowWindow?.Invoke();
 
@@ -54,15 +48,10 @@ namespace AbyssMoth.Internal.Codebase.Animation
                 .Join(canvasGroup.DOFade(1f, 0.5f));
         }
 
-        [ContextMenu("HideWindow")]
         private void HideWindow()
         {
             if (currentAnimation != null && currentAnimation.IsActive())
-            {
                 currentAnimation.Kill();
-            }
-
-            OnHideWindow?.Invoke();
 
             currentAnimation = DOTween.Sequence()
                 .Join(windowRectTransform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack))
