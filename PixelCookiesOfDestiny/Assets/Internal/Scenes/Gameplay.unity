@@ -3967,6 +3967,10 @@ MonoBehaviour:
   - {fileID: 161221500}
   - {fileID: 973897763}
   - {fileID: 1749762319}
+  Buttons:
+  - {fileID: 1489164559}
+  - {fileID: 224070138}
+  - {fileID: 1179956791}
 --- !u!1 &1881216787
 GameObject:
   m_ObjectHideFlags: 0

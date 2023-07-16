@@ -17,7 +17,8 @@ namespace AbyssMoth.Internal.Codebase.Services.TextReader
         private readonly ILocalizationServices localizationServices;
 
         public TextFileReaderServicesServices(ILocalizationServices localizationServices) =>
-            this.localizationServices = localizationServices ?? throw new ArgumentNullException(nameof(localizationServices));
+            this.localizationServices =
+                localizationServices ?? throw new ArgumentNullException(nameof(localizationServices));
 
         public string[] GetTextDataset()
         {

@@ -5,7 +5,6 @@
 //
 // **************************************************************** //
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using AbyssMoth.Internal.Codebase.Services.Localization;
@@ -18,8 +17,7 @@ namespace AbyssMoth.Internal.Codebase.Localization
     {
         [field: SerializeField] public List<LocalizationText> LocalizationTextList { get; private set; }
 
-        [field: SerializeField, HideInInspector]
-        public Text Text { get; private set; }
+        [field: SerializeField, HideInInspector] public Text Text { get; private set; }
 
         private ILocalizationServices localizationServices;
 
@@ -59,24 +57,13 @@ namespace AbyssMoth.Internal.Codebase.Localization
             Text ??= GetComponent<Text>();
         }
 
-        private void OnDestroy() => 
+        private void OnDestroy() =>
             localizationServices.OnLanguageChanged -= LanguageChanged;
 
         private void LanguageChanged(LanguageTypeID languageTypeID)
         {
-            Text.text = languageTypeID switch
-            {
-                LanguageTypeID.Ru => LocalizationTextList
-                    .FirstOrDefault(language => languageTypeID == LanguageTypeID.Ru)
-                    ?.Text,
-                LanguageTypeID.En => LocalizationTextList
-                    .FirstOrDefault(language => languageTypeID == LanguageTypeID.En)
-                    ?.Text,
-                LanguageTypeID.Tr => LocalizationTextList
-                    .FirstOrDefault(language => languageTypeID == LanguageTypeID.Tr)
-                    ?.Text,
-                _ => throw new ArgumentOutOfRangeException(nameof(languageTypeID), languageTypeID, null)
-            };
+            foreach (var localizationText in LocalizationTextList.Where(x => x.Language == languageTypeID))
+                Text.text = localizationText.Text;
         }
     }
 }
