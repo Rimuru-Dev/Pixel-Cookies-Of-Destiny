@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using AbyssMoth.Internal.Codebase.Animation;
 using AbyssMoth.Internal.Codebase.Services.Fate;
@@ -8,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace AbyssMoth.Internal.Codebase.View
 {
-    public class CookiesView : MonoBehaviour
+    public sealed class CookiesView : MonoBehaviour
     {
         public Image[] images;
         public float minScale = 0.8f;
@@ -81,12 +82,15 @@ namespace AbyssMoth.Internal.Codebase.View
                     remainingCookies--;
 
                     if (remainingCookies <= 0)
-                    {
-                        Debug.Log("WIN");
-                        getMoreCookiespanel.SetActive(true);
-                    }
+                        StartCoroutine(ShowGetMoreCookiesPanel());
                 });
             }
+        }
+
+        private IEnumerator ShowGetMoreCookiesPanel()
+        {
+            yield return new WaitForSeconds(0.2f);
+            getMoreCookiespanel.SetActive(true);
         }
 
         private void GetMoreCookies()
