@@ -755,6 +755,7 @@ GameObject:
   - component: {fileID: 161221497}
   - component: {fileID: 161221499}
   - component: {fileID: 161221498}
+  - component: {fileID: 161221500}
   m_Layer: 7
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -825,6 +826,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161221496}
   m_CullTransparentMesh: 1
+--- !u!114 &161221500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161221496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8774cf15ccb849af904baa66cb13a983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <LocalizationTextList>k__BackingField:
+  - <Language>k__BackingField: 0
+    <Text>k__BackingField: "\u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C \u0411\u041E\u041B\u042C\u0428\u0415
+      \u041F\u0415\u0427\u0415\u041D\u042C\u042F"
+  - <Language>k__BackingField: 1
+    <Text>k__BackingField: GET MORE BISCUITS
+  - <Language>k__BackingField: 2
+    <Text>k__BackingField: "DAHA FAZLA BISK\xDCVI AL"
+  <Text>k__BackingField: {fileID: 161221498}
 --- !u!1 &224070136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,6 +2179,7 @@ GameObject:
   - component: {fileID: 973897760}
   - component: {fileID: 973897762}
   - component: {fileID: 973897761}
+  - component: {fileID: 973897763}
   m_Layer: 7
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -2227,6 +2250,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973897759}
   m_CullTransparentMesh: 1
+--- !u!114 &973897763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973897759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8774cf15ccb849af904baa66cb13a983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <LocalizationTextList>k__BackingField:
+  - <Language>k__BackingField: 0
+    <Text>k__BackingField: "\u0412\u042B\u0411\u0420\u0410\u0422\u042C \u0414\u0420\u0423\u0413\u041E\u0415
+      \u041F\u0415\u0427\u0415\u041D\u042C\u0415"
+  - <Language>k__BackingField: 1
+    <Text>k__BackingField: CHOOSE ANOTHER BISCUIT
+  - <Language>k__BackingField: 2
+    <Text>k__BackingField: "BA\u015EKA BIR BISK\xDCVI SE\xC7"
+  <Text>k__BackingField: {fileID: 973897761}
 --- !u!1 &1089288758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,7 +2778,6 @@ MonoBehaviour:
   - {fileID: 1401459471}
   minScale: 0.8
   maxScale: 1.2
-  remainingCookies: 0
   text: {fileID: 587486740}
   windowAnimation: {fileID: 15212197}
 --- !u!1 &1401459469
@@ -3707,6 +3750,7 @@ GameObject:
   - component: {fileID: 1749762316}
   - component: {fileID: 1749762318}
   - component: {fileID: 1749762317}
+  - component: {fileID: 1749762319}
   m_Layer: 7
   m_Name: Label
   m_TagString: Untagged
@@ -3776,6 +3820,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749762315}
   m_CullTransparentMesh: 1
+--- !u!114 &1749762319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749762315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8774cf15ccb849af904baa66cb13a983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <LocalizationTextList>k__BackingField:
+  - <Language>k__BackingField: 0
+    <Text>k__BackingField: "\u042F\u0437\u044B\u043A\u0438"
+  - <Language>k__BackingField: 1
+    <Text>k__BackingField: Languages
+  - <Language>k__BackingField: 2
+    <Text>k__BackingField: Diller
+  <Text>k__BackingField: {fileID: 1749762317}
 --- !u!1 &1782401075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,6 +3963,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cookiesController: {fileID: 1338815277}
   moreCookiesPanel: {fileID: 1491063842}
+  localizationTextComponents:
+  - {fileID: 161221500}
+  - {fileID: 973897763}
+  - {fileID: 1749762319}
 --- !u!1 &1881216787
 GameObject:
   m_ObjectHideFlags: 0

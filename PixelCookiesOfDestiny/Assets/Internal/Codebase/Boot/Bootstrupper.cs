@@ -5,7 +5,10 @@
 //
 // **************************************************************** //
 
+using System;
+using System.Collections.Generic;
 using AbyssMoth.Internal.Codebase.Cookies;
+using AbyssMoth.Internal.Codebase.Localization;
 using AbyssMoth.Internal.Codebase.Services.Fate;
 using AbyssMoth.Internal.Codebase.Services.Localization;
 using AbyssMoth.Internal.Codebase.Services.TextReader;
@@ -17,6 +20,7 @@ namespace AbyssMoth.Internal.Codebase.Boot
     {
         [SerializeField] private CookiesController cookiesController;
         [SerializeField] private MoreCookiesPanel moreCookiesPanel;
+        [SerializeField] private List<LocalizationTextComponent> localizationTextComponents;
 
         private IFateServices fateServices;
         private ITextFileReaderServices textFileReaderServices;
@@ -34,6 +38,20 @@ namespace AbyssMoth.Internal.Codebase.Boot
             fateServices.Initialize();
             cookiesController.Initialization(fateServices);
             moreCookiesPanel.Initialize();
+
+            foreach (var localizationText in localizationTextComponents)
+            {
+                localizationText.Initialize(localizationServices);
+            }
+        }
+
+        [System.Diagnostics.Conditional("DEBUG")]
+        private void OnValidate()
+        {
+            localizationTextComponents = new List<LocalizationTextComponent>();
+
+            foreach (var localizationText in FindObjectsOfType<LocalizationTextComponent>())
+                localizationTextComponents.Add(localizationText);
         }
     }
 }
