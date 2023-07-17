@@ -7,7 +7,6 @@
 
 using System;
 using AbyssMoth.Internal.Codebase.Constants;
-using UnityEngine;
 
 namespace AbyssMoth.Internal.Codebase.Services.Localization
 {
@@ -32,7 +31,6 @@ namespace AbyssMoth.Internal.Codebase.Services.Localization
 
         public void SwitchLandiage(LanguageTypeID languageTypeID)
         {
-            Debug.Log($"SwitchLandiage: {languageTypeID}");
             this.languageTypeID = languageTypeID;
             OnLanguageChanged?.Invoke(this.languageTypeID);
         }

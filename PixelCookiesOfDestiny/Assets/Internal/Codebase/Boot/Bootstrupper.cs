@@ -51,7 +51,7 @@ namespace AbyssMoth.Internal.Codebase.Boot
         {
             localizationTextComponents = new List<LocalizationTextComponent>();
 
-            foreach (var localizationText in FindObjectsOfType<LocalizationTextComponent>())
+            foreach (var localizationText in FindObjectsOfType<LocalizationTextComponent>(true))
                 localizationTextComponents.Add(localizationText);
         }
     }

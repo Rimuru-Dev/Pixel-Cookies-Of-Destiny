@@ -118,7 +118,7 @@ MonoBehaviour:
     it: 
     de: 
     hi: 
-  debug: 1
+  debug: 0
   archivingBuild: 1
   bakcgroundImage: 2
   pixelRatioEnable: 0

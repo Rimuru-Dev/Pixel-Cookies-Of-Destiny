@@ -27,6 +27,7 @@ namespace AbyssMoth.Internal.Codebase.Localization
             localizationServices.OnLanguageChanged += LanguageChanged;
         }
 
+        [System.Diagnostics.Conditional("DEBUG")]
         private void Reset()
         {
             Text ??= GetComponent<Text>();
@@ -49,6 +50,7 @@ namespace AbyssMoth.Internal.Codebase.Localization
             });
         }
 
+        [System.Diagnostics.Conditional("DEBUG")]
         private void OnValidate()
         {
             if (LocalizationTextList is not { Count: > 0 })
