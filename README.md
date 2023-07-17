@@ -31,6 +31,6 @@
   </a>
 </p>
 
-![screenshot_20230717185934](https://github.com/RimuruDev/PixelCookiesOfDestiny/assets/85500556/cc1e7046-5d7b-4d92-be0a-67cb9db15a7e)
-![screenshot_20230717190820](https://github.com/RimuruDev/PixelCookiesOfDestiny/assets/85500556/c852f312-5b45-48a5-9705-9256dcf425bc)
-![screenshot_20230717190114](https://github.com/RimuruDev/PixelCookiesOfDestiny/assets/85500556/1cc49725-43e8-4a65-a064-3ecb19a2a3da)
+![screenshot_20230717185934](https://github.com/RimuruDev/PixelCookiesOfDestiny/assets/85500556/b8a0e785-8e1b-46b0-bd9c-7fd9ed2bc942)
+![screenshot_20230717190820](https://github.com/RimuruDev/PixelCookiesOfDestiny/assets/85500556/1e4921ae-bc81-46e1-a3db-66a510bcef70)
+![screenshot_20230717190114](https://github.com/RimuruDev/PixelCookiesOfDestiny/assets/85500556/fa6d9887-e250-43cf-b60c-c7724ad9636a)
