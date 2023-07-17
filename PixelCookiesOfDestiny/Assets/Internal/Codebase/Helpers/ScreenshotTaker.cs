@@ -5,17 +5,16 @@
 //
 // **************************************************************** //
 
-
+#if UNITY_EDITOR
 using UnityEngine;
 
 namespace AbyssMoth.Internal.Codebase.Helpers
 {
     public sealed class ScreenshotTaker : MonoBehaviour
     {
-#if UNITY_EDITOR
         [SerializeField] private string folderName = "Screenshots";
-        [SerializeField] private int resolutionWidth = 1920;
-        [SerializeField] private int resolutionHeight = 1080;
+        // [SerializeField] private int resolutionWidth = 1920;
+        // [SerializeField] private int resolutionHeight = 1080;
 
         [System.Diagnostics.Conditional("DEBUG")]
         private void Update()
@@ -39,6 +38,6 @@ namespace AbyssMoth.Internal.Codebase.Helpers
 
             Debug.Log("Скриншот сохранен: " + screenshotPath);
         }
-#endif
     }
 }
+#endif

@@ -22,7 +22,7 @@ namespace AbyssMoth.Internal.Codebase.Boot
         [SerializeField] private MoreCookiesPanel moreCookiesPanel;
         [SerializeField] private SettingsPanelView settingsPanel;
 
-        [SerializeField, HideInInspector] private List<LocalizationTextComponent> localizationTextComponents;
+        [SerializeField , HideInInspector] private List<LocalizationTextComponent> localizationTextComponents;
 
         private IFateServices fateServices;
         private ITextFileReaderServices textFileReaderServices;
@@ -39,11 +39,12 @@ namespace AbyssMoth.Internal.Codebase.Boot
         {
             fateServices.Initialize();
             cookiesController.Initialization(fateServices);
-            moreCookiesPanel.Initialize();
             settingsPanel.Initialize(localizationServices);
 
             foreach (var localizationText in localizationTextComponents)
-                localizationText.Initialize(localizationServices);
+                localizationText.Initialize(localizationServices); 
+            
+            moreCookiesPanel.Initialize();
         }
 
         [System.Diagnostics.Conditional("DEBUG")]

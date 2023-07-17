@@ -19,15 +19,15 @@ namespace AbyssMoth.Internal.Codebase.Cookies
 
         public void Initialize()
         {
-            panel.SetActive(false);
-
             button.onClick.AddListener(() =>
             {
                 cookiesController.GetMoreCookies();
                 panel.SetActive(false);
             });
 
-            cookiesController.OnWin += ShowPanel;
+            cookiesController.OnWin += ShowPanel; 
+            
+            panel.SetActive(false);
         }
 
         private void OnDestroy()
