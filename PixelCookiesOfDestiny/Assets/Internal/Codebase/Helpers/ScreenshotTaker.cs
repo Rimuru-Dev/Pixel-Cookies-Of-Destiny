@@ -1,7 +1,11 @@
+// ReSharper disable All
 // **************************************************************** //
 //
 //   Copyright (c) RimuruDev. All rights reserved.
-//   Contact me: rimuru.dev@gmail.com
+//   Contact me: 
+//          - Gmail:    rimuru.dev@gmail.com
+//          - GitHub:   https://github.com/RimuruDev
+//          - LinkedIn: https://www.linkedin.com/in/rimuru/
 //
 // **************************************************************** //
 
