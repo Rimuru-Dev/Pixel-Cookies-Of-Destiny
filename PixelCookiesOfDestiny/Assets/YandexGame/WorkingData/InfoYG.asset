@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa747916aa66674d96ea40ca8a480b2, type: 3}
   m_Name: InfoYG
   m_EditorClassIdentifier: 
-  scopes: 1
+  scopes: 0
   playerPhotoSize: 0
-  leaderboardEnable: 1
-  saveCloud: 1
+  leaderboardEnable: 0
+  saveCloud: 0
   flush: 0
   localSaveSync: 1
   saveCloudInterval: 5
-  metricaEnable: 1
+  metricaEnable: 0
   metricaCounterID: 0
   AdWhenLoadingScene: 1
   showFirstAd: 1
