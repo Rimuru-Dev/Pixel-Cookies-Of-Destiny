@@ -16,15 +16,17 @@ namespace AbyssMoth.Internal.Codebase.Services.RandomService
 {
     public sealed class RandomService : IRandomService
     {
-        public void RandomGraphicRotation(Graphic image)
+        public void RandomGraphicRotation(Graphic image, float minRange = 0f, float maxRange = 360f)
         {
-            var randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+            var randomRotation = Quaternion.Euler(0f, 0f, Random.Range(minRange, maxRange));
+            
             image.rectTransform.rotation = randomRotation;
         }
 
         public void RandomGraphicScale(Graphic image, float minScale, float maxScale)
         {
             var randomScale = Random.Range(minScale, maxScale);
+            
             image.rectTransform.localScale = new Vector3(randomScale, randomScale, 1f);
         }
     }

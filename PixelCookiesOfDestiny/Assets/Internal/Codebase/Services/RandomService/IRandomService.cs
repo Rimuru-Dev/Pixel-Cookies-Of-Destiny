@@ -15,7 +15,7 @@ namespace AbyssMoth.Internal.Codebase.Services.RandomService
 {
     public interface IRandomService
     {
-        public void RandomGraphicRotation(Graphic image);
+        public void RandomGraphicRotation(Graphic image, float minRange = 0f, float maxRange = 360f);
         public void RandomGraphicScale(Graphic image, float minScale, float maxScale);
     }
 }
