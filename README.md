@@ -35,6 +35,9 @@
   </a>
 </p>
 
+# Warning
+- Yandex Plugin is Outdated!
+
 ![screenshot_20230717185934](https://github.com/RimuruDev/PixelCookiesOfDestiny/assets/85500556/b8a0e785-8e1b-46b0-bd9c-7fd9ed2bc942)
 ![screenshot_20230717190820](https://github.com/RimuruDev/PixelCookiesOfDestiny/assets/85500556/1e4921ae-bc81-46e1-a3db-66a510bcef70)
 ![screenshot_20230717190114](https://github.com/RimuruDev/PixelCookiesOfDestiny/assets/85500556/fa6d9887-e250-43cf-b60c-c7724ad9636a)
