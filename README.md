@@ -1,7 +1,5 @@
 # 💖 Play Game ([RU](https://yandex.ru/games/app/242448?lang=ru) - [En](https://yandex.ru/games/app/242448?lang=en) - [Tr](https://yandex.ru/games/app/242448?lang=tr))💖
 
-[Telegram](https://t.me/DevLogUnity)
-
 <p align="center">
   <h1>⭐️ Pixel Cookies Of Destiny ⭐️</h1>
 </p>
